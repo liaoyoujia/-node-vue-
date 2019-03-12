@@ -6,11 +6,17 @@
 </template>
 
 <script>
+// console.log(this.$tab,31231);
+
   import Header from './components/header'
   export default {
     name: 'app',
     components: {
       Header
+    },
+    mounted(){
+      console.log(this.$tab,31231)
+      
     }
   }
 </script>

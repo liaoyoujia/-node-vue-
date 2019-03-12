@@ -1,7 +1,7 @@
 // 获取数据方法
 import http from './http'
 export let getTopics = (data) => {
-    return http({method: 'get',url: '/topics',data})
+    return http({method: 'get',url: '/topics',params:data})
 }
 
 export let getTopicById=(id)=>{
