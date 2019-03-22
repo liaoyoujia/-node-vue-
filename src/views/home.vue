@@ -25,7 +25,6 @@
         getTopics
     } from '../util/api.js'
     import Content from '../components/content'
-    // import { setTimeout } from 'timers';
 
     export default {
         data() {
@@ -41,7 +40,7 @@
             handleClick() {
                 if (!this.store[this.tab]) {
                     this.limit = 20,
-                    this.list = []
+                        this.list = []
                     this.getData()
                 } else {
                     this.limit = this.store[this.tab].limit
@@ -60,7 +59,7 @@
                     tab
                 }).then((res) => {
                     if (res && res.data) {
-                        this.limit +=10
+                        this.limit += 10
                         let data = res.data
                         this.list = data.data
 
@@ -76,7 +75,7 @@
             scrollMethod() {
                 const scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
                 const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-                const clintHeight =document.documentElement.clientHeight;
+                const clintHeight = document.documentElement.clientHeight;
                 if (scrollTop + clintHeight >= scrollHeight) {
                     this.getData()
                 }
@@ -91,7 +90,7 @@
                 window.addEventListener('scroll', this.scrollMethod)
         },
         destroyed() {
-            window.removeEventListener("scroll", this.scrollMethod  );
+            window.removeEventListener("scroll", this.scrollMethod);
         },
     }
 </script>

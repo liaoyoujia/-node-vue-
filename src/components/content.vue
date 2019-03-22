@@ -1,8 +1,9 @@
 <template>
   <div>
     <div class="tab_content" v-for="(item,index) in list" :key="index">
-      <img :src="item.author.avatar_url" alt="">
-      <p class="number"><i class="small_number">{{item.reply_count}}</i>/<i class="big_number">{{item.visit_count}}</i></p>
+      <router-link :to="'/user/'+item.author.loginname"><img :src="item.author.avatar_url" alt=""></router-link>
+      <p class="number"><i class="small_number">{{item.reply_count}}</i>/<i class="big_number">{{item.visit_count}}</i>
+      </p>
       <el-tag :type="$tab[item.tab] && $tab[item.tab].type">分享</el-tag>
       <p class="content">{{item.title}}</p>
       <span>{{$moment(item.last_reply_at,'YYYY-MM-DD').startOf('day')
@@ -17,6 +18,10 @@
       return {}
     },
     props: ['list'],
+    mounted(){
+      console.log(this.list,'3123123123123123');
+      
+    }
 
   }
 </script>
@@ -52,7 +57,7 @@
     .content {
       color: #42b983;
       font-weight: 600;
-      font-size:16px;
+      font-size: 16px;
       text-align: left;
       width: 50%;
       overflow: hidden;

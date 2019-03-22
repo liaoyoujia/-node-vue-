@@ -7,8 +7,12 @@ import tab from './util/tab'
 import moment from 'moment'
 Vue.use(ElementUI);
 Vue.config.productionTip = false
+const bus=new Vue()
 Vue.prototype.$tab = tab
 Vue.prototype.$moment=moment
+Vue.prototype.$bus=bus
+
+
 moment.locale('zh-cn')
 new Vue({
   router,

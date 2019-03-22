@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// console.log(this.$tab,31231);
 
   import Header from './components/header'
   export default {
@@ -15,8 +14,6 @@
       Header
     },
     mounted(){
-      console.log(this.$tab,31231)
-      
     }
   }
 </script>
