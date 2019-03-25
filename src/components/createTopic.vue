@@ -3,12 +3,10 @@
         <ul>
             <li>最近参与的话题</li>
             <li v-for="(item,index) in topic" :key="index" >
-                <img :src="item.author.avatar_url" alt="">
-                <span class="content">{{item.title}}</span>
+                <router-link :to="'/user/'+item.author.loginname"><img :src="item.author.avatar_url" alt=""></router-link>
+                 <router-link :to="'/topic/'+item.id"><span class="content">{{item.title}}</span></router-link>
                 <span class="time">{{$moment(item.last_reply_at, 'YYYY-MM-DD').fromNow()}}</span>
-
             </li>
-         
         </ul>
 
 
@@ -25,15 +23,19 @@
         created() {
             this.$bus.$on('gainData', (data) => {
                 this.topic = data.recent_replies
-                console.log(data.recent_replies,321312);
+                console.log(data,3213123);
                 
-
+               
             })
         }
     }
 </script>
 
 <style scoped lang='scss'>
+ a {
+        display: block;
+    }
+
     .topic {
         width: 60%;
         margin: 20px auto 20px;
@@ -58,13 +60,14 @@
                 img {
                     width: 50px;
                     height: 50px;
+                    display: block;
                     border-radius: 6px;
                 }
 
                 span.content {
                     color: #42b983;
                     font-weight: 600;
-                    width: 86%;
+                    width: 85%;
                     margin-left: 12px;
                     overflow: hidden;
                     text-overflow: ellipsis;

@@ -1,8 +1,8 @@
 <template>
   <div class="user_box">
     <Person :loginname="loginname"></Person>
-    <Topic :loginname="loginname"></Topic>
-    <CreateTop :loginname="loginname"></CreateTop>
+    <Topic></Topic>
+    <CreateTop></CreateTop>
   </div>
 </template>
 
@@ -23,6 +23,12 @@
     },
     created() {
       this.loginname = this.$route.params.id
+    },
+    watch: {
+      '$route'(to, from) {
+        this.loginname = to.params.id;
+        next();
+      }
     }
   }
 </script>

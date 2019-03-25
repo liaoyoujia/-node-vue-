@@ -21,9 +21,7 @@
 </template>
 
 <script type='text/ecmascript-6'>
-    import {
-        getTopics
-    } from '../util/api.js'
+    import {getTopics} from '../util/api.js'
     import Content from '../components/content'
 
     export default {

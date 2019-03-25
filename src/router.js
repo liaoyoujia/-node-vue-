@@ -3,16 +3,26 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import Home from './views/home.vue'
-import User from './views/user.vue'
+const Home=()=>import('./views/home.vue')
+const User=()=>import('./views/user.vue')
+const Topic=()=>import('./views/topic.vue')
+
 export default new VueRouter({
     routes: [{
-        path: '/',
-        component: Home,
+            path: '/',
+            component: Home,
 
-    }, {
-        path: '/user/:id',
-        component: User
-    }]
+        },
+        {
+            path: '/user/:id',
+            component: User
+        },
+        {
+            path: '/topic/:id',
+            component: Topic
+        }
+
+
+    ]
 
 })

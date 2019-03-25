@@ -19,7 +19,6 @@
     },
     props: ['list'],
     mounted(){
-      console.log(this.list,'3123123123123123');
       
     }
 

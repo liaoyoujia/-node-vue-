@@ -31,18 +31,27 @@
             loginname: String
         },
         methods: {
-            fetchData() {
-                getUserByName(this.loginname).then(res => {
+            fetchData(name) {
+                getUserByName(name).then(res => {
                     if (res.data) {
                         this.user = res.data.data
-                        this.$bus.$emit('gainData',res.data.data)
+                        this.$bus.$emit('gainData', res.data.data)
                     }
                 })
 
             }
         },
         mounted() {
-            this.fetchData()
+            this.loginname && this.fetchData(this.loginname)
+        },
+        watch: {
+            loginname(loginname) {
+                if (!loginname) {
+                    return;
+                }
+                this.fetchData(loginname);
+
+            }
         }
     }
 </script>
